@@ -1,14 +1,15 @@
+// Creates the Express server
 import express from 'express';
-import controllerRouting from './routes/index';
+import router from './routes';
 
 const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(express.json());
-controllerRouting(app);
+app.use(router);
 
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log(`server running on port ${port}`);
 });
 
 export default app;
